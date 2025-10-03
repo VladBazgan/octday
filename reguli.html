@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Petrecere - Reguli</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Font Awesome pentru iconițe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            background: #282a36;
+            color: #fff;
+        }
+
+        .navigation {
+            position: relative;
+            width: 490px; /* pentru 7 butoane */
+            height: 70px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #333;
+            border-radius: 10px;
+        }
+
+            .navigation ul {
+                position: relative;
+                display: flex;
+                width: 490px;
+            }
+
+                .navigation ul li {
+                    position: relative;
+                    list-style: none;
+                    width: 70px;
+                    height: 70px;
+                    z-index: 1;
+                }
+
+                    .navigation ul li a {
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        width: 100%;
+                        text-align: center;
+                        font-weight: 500;
+                        color: #fff;
+                        text-decoration: none;
+                    }
+
+                        .navigation ul li a .icon {
+                            position: relative;
+                            display: block;
+                            font-size: 1.5em;
+                            line-height: 75px;
+                            transition: 0.5s;
+                            color: rgba(255, 255, 255, 0.5);
+                        }
+
+                    .navigation ul li:hover a .icon {
+                        color: rgba(255, 255, 255, 1);
+                    }
+
+                    .navigation ul li.active a .icon {
+                        transform: translateY(-8px);
+                        color: #29fd53;
+                    }
+
+                    .navigation ul li a .text {
+                        position: absolute;
+                        opacity: 0;
+                        font-weight: 600;
+                        font-size: 0.55em;
+                        color: #222327;
+                        transition: 0.5s;
+                        text-transform: uppercase;
+                    }
+
+                    .navigation ul li.active a .text {
+                        transform: translateY(13px);
+                        opacity: 1;
+                    }
+
+        .indicator {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+        }
+
+            .indicator::before {
+                content: "";
+                position: absolute;
+                bottom: 13px;
+                width: 80%;
+                height: 14px;
+                background: #29fd53;
+                border-radius: 10px;
+            }
+
+            .indicator::after {
+                content: "";
+                position: absolute;
+                top: -3px;
+                width: 7.5px;
+                height: 7.5px;
+                border-radius: 50%;
+                background: #333;
+                box-shadow: 0 0 0 2px #29fd53, 50px 50px #29fd53, 40px 0 #29fd53, 0 40px #29fd53;
+                transform: rotate(45deg);
+                animation: animate 2s ease-in-out infinite;
+            }
+
+        @keyframes animate {
+            0%, 100% {
+                transform: rotate(35deg);
+            }
+
+            50% {
+                transform: rotate(55deg);
+            }
+        }
+
+        /* indicator pentru 7 butoane */
+        .navigation ul li:nth-child(2).active ~ .indicator {
+            transform: translateX(calc(70px * 1));
+        }
+
+        .navigation ul li:nth-child(3).active ~ .indicator {
+            transform: translateX(calc(70px * 2));
+        }
+
+        .navigation ul li:nth-child(4).active ~ .indicator {
+            transform: translateX(calc(70px * 3));
+        }
+
+        .navigation ul li:nth-child(5).active ~ .indicator {
+            transform: translateX(calc(70px * 4));
+        }
+
+        .navigation ul li:nth-child(6).active ~ .indicator {
+            transform: translateX(calc(70px * 5));
+        }
+
+        .navigation ul li:nth-child(7).active ~ .indicator {
+            transform: translateX(calc(70px * 6));
+        }
+
+        main {
+            margin-top: 80px;
+            text-align: center;
+            max-width: 700px;
+        }
+
+            main h1 {
+                font-size: 2.2em;
+                margin-bottom: 15px;
+                color: #29fd53;
+            }
+
+            main p {
+                font-size: 1.1em;
+                margin-bottom: 10px;
+                color: #ddd;
+            }
+    </style>
+</head>
+<body>
+
+    <!-- Navigație modernă -->
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="text">Acasă</span>
+                </a>
+            </li>
+            <li>
+                <a href="about.html">
+                    <span class="icon"><i class="fas fa-info-circle"></i></span>
+                    <span class="text">Info</span>
+                </a>
+            </li>
+            <li>
+                <a href="datorii.html">
+                    <span class="icon"><i class="fas fa-file-invoice-dollar"></i></span>
+                    <span class="text">Datorii</span>
+                </a>
+            </li>
+            <li>
+                <a href="program.html">
+                    <span class="icon"><i class="fa-solid fa-calendar-days"></i></span>
+                    <span class="text">Program</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="reguli.html">
+                    <span class="icon"><i class="fa-solid fa-clipboard-list"></i></span>
+                    <span class="text">Reguli</span>
+                </a>
+            </li>
+            <li>
+                <a href="album.html">
+                    <span class="icon"><i class="fa-solid fa-images"></i></span>
+                    <span class="text">Album</span>
+                </a>
+            </li>
+            <li>
+                <a href="avize.html">
+                    <span class="icon"><i class="fa-solid fa-file-circle-check"></i></span>
+                    <span class="text">Avize</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+
+    <!-- Conținut principal -->
+    <main>
+        <div class="wrap">
+            <header>
+                <div class="badge">Document oficial</div>
+                <h1>CODUL PETRECERII</h1>
+                <div class="subtitle">„Ziua lui Vlad” – ediția curentă</div>
+                <div class="meta">Organizator: <strong>Vlad Bazgan</strong> • Data adoptării: <span id="dataDoc"></span></div>
+            </header>
+
+            <!-- Cuprins generat -->
+            <nav class="toc">
+                <h2>Cuprins</h2>
+                <ol id="tocList" class="muted"></ol>
+                <div class="note">
+                    Sfaturi: <span class="chip">Ctrl/Cmd+P → Salvează PDF</span>
+                    <span class="chip">A4 • Spațiere 1.5</span>
+                    <span class="chip">Times New Roman</span>
+                </div>
+            </nav>
+
+            <!-- Document -->
+            <section id="titlul-i">
+                <h2>TITLUL I – DISPOZIȚII GENERALE</h2>
+                <p class="article"><strong>Art. 1 (Scop).</strong> Prezentul Cod stabilește normele obligatorii pentru buna desfășurare a evenimentului aniversar „Ziua lui Vlad” (denumit „Evenimentul”).</p>
+                <p class="article"><strong>Art. 2 (Aplicabilitate).</strong> Codul este opozabil tuturor persoanelor prezente în perimetrul Evenimentului („Invitați”).</p>
+                <p class="article"><strong>Art. 3 (Organizator).</strong> Autoritatea exclusivă de organizare, conducere și disciplină aparține Organizatorului, Vlad Bazgan („Organizatorul”).</p>
+                <p class="article"><strong>Art. 4 (Principii).</strong> Respect, siguranță, ordine, echitate și prioritate absolută acordată Organizatorului.</p>
+            </section>
+
+            <section id="titlul-ii">
+                <h2>TITLUL II – DEFINIȚII</h2>
+                <p class="article"><strong>Art. 10.</strong> „Camera de detenție aniversară” – încăpere desemnată aplicării pedepselor privative de libertate, cu sistem de alarmă.</p>
+                <p class="article"><strong>Art. 11.</strong> „StrictToken Special” – aprobare scrisă/simbolică, netransmisibilă, emisă de Organizator pentru depășirea limitelor.</p>
+                <p class="article"><strong>Art. 12.</strong> „Registru” – ansamblul registrului alb, registrului negru și registrului special al fumătorilor.</p>
+                <p class="article"><strong>Art. 13.</strong> „Minor” – persoană sub vârsta legală pentru consum de alcool și tutun.</p>
+            </section>
+
+            <section id="titlul-iii">
+                <h2>TITLUL III – DREPTURI ȘI OBLIGAȚII</h2>
+                <p class="article"><strong>Art. 20 (Drepturi).</strong> Invitații au dreptul la participare, porții echitabile, acces la facilități și pot propune activități (cu aprobarea Organizatorului).</p>
+                <p class="article"><strong>Art. 21 (Obligații generale).</strong> Respectarea Codului, a programului și a instrucțiunilor Organizatorului.</p>
+                <p class="article"><strong>Art. 22 (Atenție prioritară).</strong> Invitații acordă prioritate absolută Organizatorului în orice conversație.</p>
+            </section>
+
+            <section id="titlul-iv">
+                <h2>TITLUL IV – AUTORITATEA ORGANIZATORULUI</h2>
+                <p class="article"><strong>Art. 30.</strong> Organizatorul constată abateri, aplică sancțiuni, eliberează StrictToken-uri, administrează Registrul și hotărăște definitiv contestațiile.</p>
+                <p class="article"><strong>Art. 31.</strong> Deciziile Organizatorului sunt executorii imediat.</p>
+            </section>
+
+            <section id="titlul-v">
+                <h2>TITLUL V – RĂSPUNDERE MATERIALĂ</h2>
+                <p class="article"><strong>Art. 40.</strong> Invitatul răspunde patrimonial pentru prejudiciile aduse bunurilor.</p>
+                <p class="article"><strong>Art. 41.</strong> Spargerea/deteriorarea unui obiect atrage: (a) plata contravalorii; (b) amendă 5–50 lei; (c) penitențe fizice stabilite de Organizator.</p>
+            </section>
+
+            <section id="titlul-vi">
+                <h2>TITLUL VI – REGULI DE CONDUITĂ</h2>
+                <p class="article"><strong>Art. 50.</strong> Sunt interzise violența, limbajul jignitor, scandalul, încălcarea programului, refuzul de a acorda atenție Organizatorului.</p>
+                <p class="article"><strong>Art. 51.</strong> Respectarea spațiilor, bunurilor și instrucțiunilor de siguranță este obligatorie.</p>
+            </section>
+
+            <section id="titlul-vii">
+                <h2>TITLUL VII – CONSUMUL DE BĂUTURI ȘI TUTUN</h2>
+                <table class="lim-table">
+                    <thead><tr><th>Categoria</th><th>Limită de bază</th><th>Cu StrictToken</th><th>Note</th></tr></thead>
+                    <tbody>
+                        <tr><td>Apă</td><td>max. 3 pahare/oră</td><td>—</td><td class="muted">Distribuire echitabilă</td></tr>
+                        <tr><td>Suc</td><td>max. 3 pahare/oră</td><td>—</td><td class="muted">Respectă pauzele</td></tr>
+                        <tr><td>Carbogazoase</td><td>max. 3 pahare/oră</td><td>—</td><td class="muted">Cola/Fanta/Sprite etc.</td></tr>
+                        <tr><td>Alcool (doar majori)</td><td>max. 2 pahare/oră</td><td>numai cu StrictToken</td><td class="muted">Interzis minorilor</td></tr>
+                        <tr><td>Țigări (doar majori)</td><td>max. 3 țigări/oră</td><td>max. 5 țigări/oră</td><td class="muted">Registru Special Fumători</td></tr>
+                    </tbody>
+                </table>
+                <p class="article"><strong>Art. 451–453.</strong> Limitele de apă, suc și carbogazoase sunt de <em>3 pahare/oră</em> per invitat.</p>
+                <p class="article"><strong>Art. 454 (Alcool).</strong> Permis doar majorilor; max. <em>2 pahare/oră</em>; interzis minorilor (sancțiuni maxime).</p>
+                <p class="article"><strong>Art. 455 (Depășiri).</strong> Orice depășire este permisă exclusiv cu <em>StrictToken Special</em> emis de Organizator; falsul/abuzul atrage sancțiuni maxime.</p>
+                <p class="article"><strong>Art. 456 (Țigări).</strong> Doar majorilor; max. <em>3/oră</em>; cu StrictToken – max. <em>5/oră</em>; depășirea → 10 min detenție + interdicție pentru restul orei + înscriere în Registrul Special al Fumătorilor.</p>
+            </section>
+
+            <section id="titlul-viii">
+                <h2>TITLUL VIII – UTILIZAREA RESURSELOR ȘI FACILITĂȚILOR</h2>
+                <p class="article"><strong>Art. 460 (Telefon).</strong> Max. <em>30 min consecutiv</em>, apoi pauză de 15 min; depășirea → confiscare temporară 20 min.</p>
+                <p class="article"><strong>Art. 461 (Toaletă).</strong> Max. <em>15 min</em>; în cazuri excepționale până la 30 min cu notificarea Organizatorului; depășirea → penitență + „Lista de Monitorizare”.</p>
+                <p class="article"><strong>Art. 462 (Televizor).</strong> Max. <em>30 min/oră</em>; depășirea → interdicție 1 oră.</p>
+                <p class="article"><strong>Art. 463 (Încărcare telefon).</strong> Max. <em>1 oră</em> per sesiune; apoi eliberarea încărcătorului.</p>
+            </section>
+
+            <section id="titlul-ix">
+                <h2>TITLUL IX – INFRACȚIUNI ȘI SANCȚIUNI (COD PENAL AL PETRECERII)</h2>
+                <p class="article"><strong>Art. 184 – Distrugerea.</strong> Spargerea/deteriorarea intenționată → plata + amendă 5–50 lei + penitențe.</p>
+                <p class="article"><strong>Art. 205 – Tulburarea ordinii.</strong> Gălăgie, scandal, violență → excludere temporară/definitivă; la gravitate mare, interdicție viitoare.</p>
+                <p class="article"><strong>Art. 385 – Furtul de tort.</strong> Consum înainte de momentul oficial → pierderea feliei suplimentare + obligația de a aduce un suc pentru grup.</p>
+                <p class="article"><strong>Art. 405 – Încălcarea programului.</strong> Neprezentare → penitență artistică sau detenție 5–15 min.</p>
+                <p class="article"><strong>Art. 430 – Lipsa de atenție față de Organizator.</strong> Neacordarea promptă a atenției → 5 min detenție + 10 min atenție exclusivă.</p>
+            </section>
+
+            <section id="titlul-x">
+                <h2>TITLUL X – ÎNCHISOAREA ANIVERSARĂ</h2>
+                <p class="article"><strong>Art. 420.</strong> Pentru abateri grave/repetate → detenție în Camera de detenție aniversară; deschiderea neautorizată a ușii → +5 min.</p>
+                <p class="article"><strong>Art. 421 (Durata).</strong> 5–30 min; în cazuri excepționale până la 60 min; &gt;60 min interzis.</p>
+                <p class="article"><strong>Art. 422 (Drepturi).</strong> Un pahar cu apă + o vizită scurtă cu aprobarea Organizatorului.</p>
+                <p class="article"><strong>Art. 423 (Eliberare condiționată).</strong> Posibilă la recunoașterea faptei și promisiunea solemnă de conformare.</p>
+            </section>
+
+            <section id="titlul-xi">
+                <h2>TITLUL XI – CONTESTAȚII</h2>
+                <p class="article"><strong>Art. 440.</strong> Contestația se depune în scris în max. 5 min de la sancțiune.</p>
+                <p class="article"><strong>Art. 441.</strong> Organizatorul analizează în 1 min și poate respinge, amâna sau ignora fără motiv.</p>
+                <p class="article"><strong>Art. 442.</strong> Decizia Organizatorului este definitivă și irevocabilă.</p>
+            </section>
+
+            <section id="titlul-xii">
+                <h2>TITLUL XII – ÎMPUTERNICIRI, SEMNĂTURI, CONTRACTE</h2>
+                <p class="article"><strong>Art. 600 (Semnare obligatorie).</strong> Toți Invitații semnează documentele oficiale; refuzul = abatere gravă.</p>
+                <p class="article"><strong>Art. 601 (Consecințe ale refuzului).</strong> Organizatorul poate modifica câmpuri neesențiale sau exclude Invitatul.</p>
+                <p class="article"><strong>Art. 602 (Control disciplinar).</strong> Nesemnarea atrage <em>5 min detenție la fiecare oră</em>, până la conformare.</p>
+                <p class="article"><strong>Art. 610 (Vânzare-cumpărare).</strong> Suveniruri, porții speciale și StrictToken-uri pot fi tranzacționate cu contract simplificat.</p>
+                <p class="article"><strong>Art. 611 (Închiriere).</strong> Bunuri (ex. telecomandă TV) pot fi închiriate pe durată limitată; nerestituirea → răspundere materială.</p>
+            </section>
+
+            <section id="titlul-xiii">
+                <h2>TITLUL XIII – EVIDENȚĂ ȘI REGISTRE</h2>
+                <p class="article"><strong>Art. 620.</strong> Se țin Registrul Alb (invitați disciplinați), Registrul Negru (sancționați), Registrul Special al Fumătorilor.</p>
+                <p class="article"><strong>Art. 621.</strong> Înscrierile în registre se fac exclusiv de Organizator sau împuternicit.</p>
+            </section>
+
+            <section id="titlul-xiv">
+                <h2>TITLUL XIV – SIGURANȚĂ ȘI SĂNĂTATE</h2>
+                <p class="article"><strong>Art. 630.</strong> Invitații respectă instrucțiunile Organizatorului în caz de urgență.</p>
+                <p class="article"><strong>Art. 631.</strong> Trusa de prim ajutor este disponibilă la punctul indicat de Organizator.</p>
+            </section>
+
+            <section id="titlul-xv">
+                <h2>TITLUL XV – DISPOZIȚII FINALE</h2>
+                <p class="article"><strong>Art. 700.</strong> Necunoașterea Codului nu scuză nerespectarea lui.</p>
+                <p class="article"><strong>Art. 701.</strong> Organizatorul poate modifica Codul în orice moment.</p>
+                <p class="article"><strong>Art. 703 – Imunitatea Organizatorului.</strong> Organizatorul nu este obligat să respecte regulile Codului; poate ignora/suspenda/modifica regulile fără justificare; nicio sancțiune nu i se aplică.</p>
+                <p class="article"><strong>Art. 704 – Obligația Invitaților (UE + România).</strong> Invitații trebuie să respecte prezentul Cod, precum și toate legile și regulamentele în vigoare emise de statul român și de Uniunea Europeană; răspunderea pentru încălcarea acestora este personală.</p>
+            </section>
+
+            <div class="hr"></div>
+</main>
+
+    <!-- Script pentru a schimba activul -->
+    <script>
+        const list = document.querySelectorAll('.navigation ul li');
+        list.forEach((item) =>
+            item.addEventListener('click', function () {
+                list.forEach((el) => el.classList.remove('active'));
+                this.classList.add('active');
+            })
+        );
+    </script>
+
+</body>
+</html>
